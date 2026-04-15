@@ -166,7 +166,7 @@ section{
     animation-delay: 0.6s;
 }
 .card img{
-    width: 100%;
+    width: 200%;
     height: 250px; /* 👈 MÁS GRANDE (antes 200px) */
     object-fit: cover;
     border-radius: 10px;
