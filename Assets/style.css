@@ -152,7 +152,18 @@ section{
     padding: 30px;
     margin-left: 55px;
     margin-top: 35px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    transform: translateX(-80px);
+    animation: slideIn 0.8s ease forwards;
+}
+.card:nth-child(1){
+    animation-delay: 0.2s;
+}
+.card:nth-child(2){
+    animation-delay: 0.4s;
+}
+.card:nth-child(3){
+    animation-delay: 0.6s;
 }
 .card img{
     height: 200px;
@@ -199,4 +210,10 @@ h2{
     justify-content: center;
     display: flex;
     margin-top: 25px;
+}
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
