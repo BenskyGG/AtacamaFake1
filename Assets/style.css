@@ -152,6 +152,12 @@ section{
     padding: 30px;
     margin-left: 55px;
     margin-top: 35px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card img{
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
 }
 .card h1{
     font-size: 25px;
