@@ -131,7 +131,7 @@ section{
 }
 .services-title{
     margin-top: 25px;
-    color: var(--blanco);
+    color: var(--gris);
     text-align: center;
 }
 /* CARTAS */
@@ -220,7 +220,7 @@ h2{
     width: 100%;
 }
 #especialidades .services-title {
-    color: var(--brillo); 
+    color: var(--verde); 
     font-weight: bold;
     font-size: 2.5rem;
 }
