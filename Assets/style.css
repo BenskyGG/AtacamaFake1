@@ -121,6 +121,27 @@ section{
     border-radius: 5%;
     box-shadow: 5px 5px 10px rgba(100, 100, 100, 0.5);
 }   
+/*ANIMACION PARA DESPLAZAR HACIA IZQUIERDA*/
+.hero-img {
+    opacity: 0;
+    transform: translateX(100px); 
+    animation: aparecerDesdeDerecha 1.5s ease-out forwards;
+}
+@keyframes aparecerDesdeDerecha {
+    to {
+        opacity: 1;
+        transform: translateX(0); /* Llega a su posición original */
+    }
+}
+.btn-hero {
+    width: 200px;
+    background-color: var(--azul); /* Usando tus variables para ser consistente */
+    border: none;
+    transition: transform 0.3s ease;
+}
+.btn-hero:hover {
+    transform: scale(1.05); /* El botón crece un poquito al pasar el mouse */
+}
 
 /* SERVICIOS */
 .services{
@@ -242,3 +263,4 @@ h2{
 .footer-logo:hover {
     transform: scale(1.1); /* El logo crece un poquito al tocarlo */
 }
+
