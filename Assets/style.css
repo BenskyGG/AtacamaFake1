@@ -182,12 +182,18 @@ section{
 }
 .card:nth-child(1){
     animation-delay: 0.2s;
+    animation: slideIn 0.8s ease forwards;
+    transition: transform 0.3s ease;
 }
 .card:nth-child(2){
     animation-delay: 0.4s;
+    animation: slideIn 0.8s ease forwards;
+    transition: transform 0.3s ease;
 }
 .card:nth-child(3){
     animation-delay: 0.6s;
+    animation: slideIn 0.8s ease forwards;
+    transition: transform 0.3s ease;
 }
 .card img{
     width: 100%;
@@ -195,14 +201,14 @@ section{
     object-fit: cover;
     border-radius: 15px; /* Bordes más redondeados */
     margin-bottom: 15px;
+    animation: slideIn 0.8s ease forwards;
+    transition: transform 0.3s ease;
 }
 .card h1{
     font-size: 25px;
 }
 .card:hover{
-    transform: scale(1.1);/* Esto hace que la tarjeta crezca un 5% */
-    z-index: 10; 
-    cursor: pointer;/* Cambia el mouse a la manito de "click" */
+    transform: translateY(10px);
 }
 
 /* FOOTER */
