@@ -176,16 +176,14 @@ section{
     opacity: 0;
     transform: translateY(20px); 
     animation: slideIn 0.8s ease forwards;
-}
-.card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hace que el cambio sea suave y no un salto brusco */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
 }
 
 /* 2. Agrega este bloque nuevo */
 .card:hover {
     transform: scale(1.05); /* Esto hace que la tarjeta crezca un 5% */
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2); /* Opcional: aumenta la sombra para que parezca que "flota" */
-    cursor: pointer; /* Cambia el mouse a la manito de "click" */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2); /* Opcional: aumenta la sombra para que parezca que "flota" */
+    cursor: pointer;/* Cambia el mouse a la manito de "click" */
 }
 .card:nth-child(1){
     animation-delay: 0.2s;
