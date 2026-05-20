@@ -1,92 +1,42 @@
 // ===============================
-// MENÚ HAMBURGUESA
+// MENÚ HAMBURGUESA RESPONSIVE
 // ===============================
 
-// Botón principal hamburguesa
-const botonMenu =
-document.getElementById("menu-toggle");
+// Selecciona el botón hamburguesa
+const botonMenu = document.getElementById("menu-toggle");
 
-// Contenedor del menú
-const menu =
-document.getElementById("navbar-menu");
-
-// Botón submenú servicios
-const botonServicios =
-document.getElementById("servicios-btn");
-
-// Lista servicios
-const submenuServicios =
-document.getElementById("submenu-servicios");
-
-// Botón submenú especialidades
-const botonEspecialidades =
-document.getElementById("especialidades-btn");
-
-// Lista especialidades
-const submenuEspecialidades =
-document.getElementById("submenu-especialidades");
+// Selecciona el contenedor del menú
+const menuNavegacion = document.getElementById("navbar-menu");
 
 /**
- * Abre o cierra el menú hamburguesa.
+ * Función que abre o cierra el menú de navegación.
+ * También actualiza atributos ARIA para accesibilidad.
  */
 function alternarMenu() {
 
-    menu.classList.toggle("active");
+    // Alterna la clase active
+    menuNavegacion.classList.toggle("active");
 
-    const abierto =
-    menu.classList.contains("active");
+    // Verifica si el menú está abierto
+    const menuAbierto = menuNavegacion.classList.contains("active");
 
-    botonMenu.setAttribute(
-        "aria-expanded",
-        abierto
-    );
+    // Actualiza aria-expanded
+    botonMenu.setAttribute("aria-expanded", menuAbierto);
+
+    // Gestión de foco para accesibilidad
+    if (menuAbierto) {
+
+        // Enfoca el primer enlace del menú
+        const primerEnlace = menuNavegacion.querySelector("a");
+
+        if (primerEnlace) {
+            primerEnlace.focus();
+        }
+    } else {
+
+        // Devuelve el foco al botón hamburguesa
+        botonMenu.focus();
+    }
 }
-
-/**
- * Abre o cierra el submenú servicios.
- */
-function alternarServicios() {
-
-    submenuServicios.classList.toggle("show");
-
-    const expandido =
-    submenuServicios.classList.contains("show");
-
-    botonServicios.setAttribute(
-        "aria-expanded",
-        expandido
-    );
-}
-
-/**
- * Abre o cierra el submenú especialidades.
- */
-function alternarEspecialidades() {
-
-    submenuEspecialidades.classList.toggle("show");
-
-    const expandido =
-    submenuEspecialidades.classList.contains("show");
-
-    botonEspecialidades.setAttribute(
-        "aria-expanded",
-        expandido
-    );
-}
-
-// EVENTOS
-
-botonMenu.addEventListener(
-    "click",
-    alternarMenu
-);
-
-botonServicios.addEventListener(
-    "click",
-    alternarServicios
-);
-
-botonEspecialidades.addEventListener(
-    "click",
-    alternarEspecialidades
-);
+// Evento click del botón hamburguesa
+botonMenu.addEventListener("click", alternarMenu);
