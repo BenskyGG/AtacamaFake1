@@ -1,33 +1,36 @@
 // Archivo: Script_BB.js
-// Funcionalidad: Menú hamburguesa dinámico y gestión de atributos ARIA
+// Funcionalidad: Control de menú hamburguesa circular y actualización de atributos ARIA
 
 document.addEventListener("DOMContentLoaded", function() {
     
-    // 1. Seleccionamos los elementos del DOM que vamos a manipular
+    // VARIABLES UTILIZADAS:
+    // btnHamburguesa: Guarda la referencia al botón circular '☰' mediante su ID único.
+    // panelDesplegable: Guarda la referencia al contenedor que aloja la lista de categorías.
     const btnHamburguesa = document.getElementById("btn-hamburguesa");
-    const menuNavegacion = document.getElementById("navbarCollapse");
+    const panelDesplegable = document.getElementById("menu-desplegable");
 
-    // 2. Creamos la función que manejará la apertura y cierre
-    function alternarMenu() {
-        // Alternamos la clase 'show' que controla la visibilidad en CSS
-        menuNavegacion.classList.toggle("show");
+    // FUNCIÓN: Maneja la transición del menú y actualiza la accesibilidad web en tiempo real.
+    function gestionarMenu() {
+        // Alternamos la clase de CSS para mostrar u ocultar visualmente el panel lateral
+        panelDesplegable.classList.toggle("activo");
 
-        // 3. Gestión de Accesibilidad (Atributos ARIA)
-        // Verificamos si el menú tiene la clase 'show' en este preciso instante
-        const menuEstaAbierto = menuNavegacion.classList.contains("show");
+        // Variable booleana que verifica si el menú contiene actualmente la clase activa
+        const estaAbierto = panelDesplegable.classList.contains("activo");
 
-        // Actualizamos los atributos dependiendo del estado del menú
-        if (menuEstaAbierto) {
-            btnHamburguesa.setAttribute("aria-expanded", "true");
-            menuNavegacion.setAttribute("aria-hidden", "false");
+        // CONDICIONAL DE ACCESIBILIDAD (ARIA):
+        // Si el menú quedó abierto, actualizamos los estados para los lectores de pantalla.
+        if (estaAbierto) {
+            btnHamburguesa.setAttribute("aria-expanded", "true");  // Informa que el control está expandido
+            panelDesplegable.setAttribute("aria-hidden", "false"); // Informa que el panel es visible
         } else {
-            btnHamburguesa.setAttribute("aria-expanded", "false");
-            menuNavegacion.setAttribute("aria-hidden", "true");
+            btnHamburguesa.setAttribute("aria-expanded", "false"); // Informa que el control está colapsado
+            panelDesplegable.setAttribute("aria-hidden", "true");  // Oculta el panel del árbol de accesibilidad
         }
     }
 
-    // 4. Asignamos el evento de clic al botón (sin usar 'onclick' en el HTML)
-    if (btnHamburguesa) {
-        btnHamburguesa.addEventListener("click", alternarMenu);
+    // ESCUCHADOR DE EVENTOS:
+    // Asignamos de forma segura el evento 'click' al botón circular (evitando usar atributos inline en el HTML).
+    if (btnHamburguesa && panelDesplegable) {
+        btnHamburguesa.addEventListener("click", gestionarMenu);
     }
 });

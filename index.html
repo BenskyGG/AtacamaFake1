@@ -15,45 +15,41 @@
     <!-- NAVBAR -->
     <!-- todo: navbar, botones de navegacion, logo empresarial  -->
     <header>
-        <nav class="navbar navbar-expand-lg fixed-top">
-    <div class="container">
+        <nav class="navbar fixed-top">
+    <div class="container d-flex justify-content-between align-items-center">
         <a class="navbar-brand" href="#">Atacama<strong>Pets</strong></a>
         
-        <button id="btn-hamburguesa" class="navbar-toggler" type="button" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Abrir menú de navegación">
-            <span class="navbar-toggler-icon"></span>
+        <button id="btn-hamburguesa" class="btn-circular-menu" aria-controls="menu-desplegable" aria-expanded="false" aria-label="Abrir menú de categorías">
+            ☰
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarCollapse" aria-hidden="true">
-            <ul class="navbar-nav ms-auto">
+        <div id="menu-desplegable" class="panel-menu-hamburguesa" aria-hidden="true">
+            <ul class="menu-lista-principal">
                 
-                <li class="nav-item active">
-                    <a class="nav-link" href="servicios.html">Servicios</a>
-                    <ul class="submenu-hamburguesa">
-                        <li><a class="nav-link sub-link" href="servicios.html#consultas">Consultas Generales</a></li>
-                        <li><a class="nav-link sub-link" href="servicios.html#vacunacion">Vacunación</a></li>
-                        <li><a class="nav-link sub-link" href="servicios.html#urgencias">Urgencias 24/7</a></li>
+                <li class="menu-seccion">
+                    <a href="servicios.html" class="categoria-padre">Servicios</a>
+                    <ul class="menu-subcategoria">
+                        <li><a href="servicios.html#consultas">Consultas Generales</a></li>
+                        <li><a href="servicios.html#vacunacion">Vacunación</a></li>
+                        <li><a href="servicios.html#urgencias">Urgencias 24/7</a></li>
                     </ul>
                 </li>
 
-                <li class="nav-item ms-lg-4 active">
-                    <a class="nav-link" href="especialidades.html">Especialidades</a>
-                    <ul class="submenu-hamburguesa">
-                        <li><a class="nav-link sub-link" href="especialidades.html#medicina">Medicina General</a></li>
-                        <li><a class="nav-link sub-link" href="especialidades.html#cirugias">Cirugías Especializadas</a></li>
-                        <li><a class="nav-link sub-link" href="especialidades.html#peluqueria">Peluquería</a></li>
+                <li class="menu-seccion">
+                    <a href="especialidades.html" class="categoria-padre">Especialidades</a>
+                    <ul class="menu-subcategoria">
+                        <li><a href="especialidades.html#medicina">Medicina General</a></li>
+                        <li><a href="especialidades.html#cirugias">Cirugías Especializadas</a></li>
+                        <li><a href="especialidades.html#peluqueria">Peluquería</a></li>
                     </ul>
                 </li>
 
-                <li class="nav-item ms-lg-4 active">
-                    <a class="nav-link" href="#nosotros">Nosotros</a>
+                <li class="menu-seccion">
+                    <a href="#nosotros" class="categoria-padre unica">Nosotros</a>
                 </li>
 
-                <li class="nav-item ms-lg-4 active">
-                    <a class="nav-link" href="#contactos">Contacto</a>
-                </li>
-                
-                <li class="nav-item ms-lg-4 active">
-                    <a type="button" class="btn btn-primary" href="#contacto">Iniciar Sesion</a>
+                <li class="menu-seccion">
+                    <a href="#contactos" class="categoria-padre unica">Contacto</a>
                 </li>
             </ul>
         </div>
