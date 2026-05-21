@@ -15,17 +15,25 @@
     <!-- NAVBAR -->
     <!-- todo: navbar, botones de navegacion, logo empresarial  -->
     <header>
-        <nav class="navbar fixed-top">
+       <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container d-flex justify-content-between align-items-center">
         <a class="navbar-brand" href="#">Atacama<strong>Pets</strong></a>
         
-        <button id="btn-hamburguesa" class="btn-circular-menu" aria-controls="menu-desplegable" aria-expanded="false" aria-label="Abrir menú de categorías">
+        <div class="d-none d-lg-flex align-items-center" id="navbarOriginal">
+            <ul class="navbar-nav d-flex flex-row align-items-center mb-0">
+                <li class="nav-item me-4"><a class="nav-link" href="#servicios">Servicios</a></li>
+                <li class="nav-item me-4"><a class="nav-link" href="#nosotros">Nosotros</a></li>
+                <li class="nav-item me-4"><a class="nav-link" href="#contactos">Contacto</a></li>
+                <li class="nav-item me-4"><a class="btn btn-primary" href="#contacto">Iniciar Sesion</a></li>
+            </ul>
+        </div>
+
+        <button id="btn-hamburguesa" class="btn-circular-menu ms-3" aria-controls="menu-desplegable" aria-expanded="false" aria-label="Abrir menú de categorías">
             ☰
         </button>
 
         <div id="menu-desplegable" class="panel-menu-hamburguesa" aria-hidden="true">
             <ul class="menu-lista-principal">
-                
                 <li class="menu-seccion">
                     <a href="servicios.html" class="categoria-padre">Servicios</a>
                     <ul class="menu-subcategoria">
@@ -34,7 +42,6 @@
                         <li><a href="servicios.html#urgencias">Urgencias 24/7</a></li>
                     </ul>
                 </li>
-
                 <li class="menu-seccion">
                     <a href="especialidades.html" class="categoria-padre">Especialidades</a>
                     <ul class="menu-subcategoria">
@@ -42,14 +49,6 @@
                         <li><a href="especialidades.html#cirugias">Cirugías Especializadas</a></li>
                         <li><a href="especialidades.html#peluqueria">Peluquería</a></li>
                     </ul>
-                </li>
-
-                <li class="menu-seccion">
-                    <a href="#nosotros" class="categoria-padre unica">Nosotros</a>
-                </li>
-
-                <li class="menu-seccion">
-                    <a href="#contactos" class="categoria-padre unica">Contacto</a>
                 </li>
             </ul>
         </div>
