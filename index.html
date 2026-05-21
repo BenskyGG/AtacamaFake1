@@ -50,6 +50,12 @@
                         <li><a href="especialidades.html#peluqueria">Peluquería</a></li>
                     </ul>
                 </li>
+                <li class="menu-seccion">
+            <a href="#nosotros" class="categoria-padre">Nosotros</a>
+        </li>
+
+        <li class="menu-seccion">
+            <a href="#contactos" class="categoria-padre">Contacto</a>
             </ul>
         </div>
     </div>
@@ -81,50 +87,63 @@
         <!-- SECCION SERVICIOS -->
 
         <section class="servicios container mt-5" id="servicios">
-            <h2 class="text-center mb-4">Nuestros Servicios</h2>
-            <div class="card-container">
-                <div class="row">
+    <h2 class="text-center mb-4">Nuestros Servicios</h2>
+    <div class="card-container">
+        <div class="row">
 
-                    <!-- Servicio 1 -->
-                    <div class="col-md-4 ">
-                        <div class="card">
-                            <img src="assets/img/Consultas.jpg" class="card-img-top" alt="Consulta veterinaria">
-                            <div class="card-body">
-                                <h5 class="card-title">Consultas Generales</h5>
-                                <p class="card-text">
-                                    Atención médica completa para mascotas, chequeos preventivos y diagnóstico de enfermedades.
-                                </p>    
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Servicio 2 -->
-                    <div class="col-md-4">
-                        <div class="card">
-                            <img src="assets/img/Vacunacion.jpg" class="card-img-top" alt="Vacunación de mascotas">
-                            <div class="card-body">
-                                <h5 class="card-title">Vacunación</h5>
-                                <p class="card-text">
-                                    Programas de vacunación para proteger a tu mascota contra enfermedades comunes.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Servicio 3 -->
-                    <div class="col-md-4">
-                        <div class="card">
-                            <img src="assets/img/Urgencias.jpg" class="card-img-top" alt="Urgencias veterinarias">
-                            <div class="card-body">
-                                <h5 class="card-title">Urgencias 24/7</h5>
-                                <p class="card-text">
-                                    Atención inmediata ante emergencias médicas para garantizar la seguridad de tu mascota.
-                                </p>
-                            </div>
-                        </div>
+            <div class="col-md-4 ">
+                <div class="card">
+                    <img src="assets/img/Consultas.jpg" class="card-img-top" alt="Consulta veterinaria">
+                    <div class="card-body">
+                        <h5 class="card-title">Consultas Generales</h5>
+                        <p class="card-text">
+                            Atención médica completa para mascotas, chequeos preventivos y diagnóstico de enfermedades.
+                        </p>    
+                        <button class="btn btn-primary btn-reservar w-100" data-servicio="Consultas Generales">Reservar</button>
                     </div>
                 </div>
             </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="assets/img/Vacunacion.jpg" class="card-img-top" alt="Vacunación de mascotas">
+                    <div class="card-body">
+                        <h5 class="card-title">Vacunación</h5>
+                        <p class="card-text">
+                            Programas de vacunación para proteger a tu mascota contra enfermedades comunes.
+                        </p>
+                        <button class="btn btn-primary btn-reservar w-100" data-servicio="Vacunación">Reservar</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="assets/img/Urgencias.jpg" class="card-img-top" alt="Urgencias veterinarias">
+                    <div class="card-body">
+                        <h5 class="card-title">Urgencias 24/7</h5>
+                        <p class="card-text">
+                            Atención inmediata ante emergencias médicas para garantizar la seguridad de tu mascota.
+                        </p>
+                        <button class="btn btn-primary btn-reservar w-100" data-servicio="Urgencias 24/7">Reservar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="seccion-carrito" class="container my-5 p-4 rounded" style="background-color: var(--negro2); border: 2px solid var(--azul);">
+    <h3 class="text-white mb-4" style="color: var(--verde) !important;">Mis Reservas Seleccionadas</h3>
+    
+    <ul id="lista-reservas" class="list-group mb-3">
+        <li class="list-group-item text-muted text-center bg-dark border-secondary">No has seleccionado ningún servicio aún.</li>
+    </ul>
+    
+    <div class="d-flex justify-content-between align-items-center text-white">
+        <h5>Total servicios a agendar: <span id="total-reservas" class="badge bg-success">0</span></h5>
+    </div>
+</div>
     </section>
 
 
@@ -358,6 +377,28 @@
 
         </div>
     </footer>
+    <div id="menu-desplegable" class="panel-menu-hamburguesa" aria-hidden="true">
+        <ul class="menu-lista-principal">
+            <li class="menu-seccion">
+                <a href="servicios.html" class="categoria-padre">Servicios</a>
+                <ul class="menu-subcategoria">
+                    <li><a href="servicios.html#consultas">Consultas Generales</a></li>
+                    <li><a href="servicios.html#vacunacion">Vacunación</a></li>
+                    <li><a href="servicios.html#urgencias">Urgencias 24/7</a></li>
+                </ul>
+            </li>
+            <li class="menu-seccion">
+                <a href="especialidades.html" class="categoria-padre">Especialidades</a>
+                <ul class="menu-subcategoria">
+                    <li><a href="especialidades.html#medicina">Medicina General</a></li>
+                    <li><a href="especialidades.html#cirugias">Cirugías Especializadas</a></li>
+                    <li><a href="especialidades.html#peluqueria">Peluquería</a></li>
+                </ul>
+            </li>
+            <li class="menu-seccion"><a href="#nosotros" class="categoria-padre">Nosotros</a></li>
+            <li class="menu-seccion"><a href="#contactos" class="categoria-padre">Contacto</a></li>
+        </ul>
+    </div>
     <script src="Script_BB.js" defer></script>
 </body>
 </html>

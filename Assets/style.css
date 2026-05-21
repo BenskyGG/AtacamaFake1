@@ -464,95 +464,57 @@ width: 100%;
    DISEÑO DE MENÚ DE HAMBURGUESA CIRCULAR (BENJAMÍN BARRAZA)
    ========================================================================== */
 
-/* Estilo para el botón en forma de círculo */
 .btn-circular-menu {
     width: 50px;
     height: 50px;
-    background-color: var(--celeste); /* Usando el color de tu paleta */
-    border: 2px solid var(--verde);    /* Borde destacado */
-    border-radius: 50%;                /* Hace el botón perfectamente redondo */
-    color: var(--negro);               /* Color del símbolo ☰ */
+    background-color: var(--celeste); 
+    border: 2px solid var(--verde);    
+    border-radius: 50%;                
+    color: var(--negro);               
     font-size: 24px;
-    display: flex;
+    cursor: pointer;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
+    position: relative;
+    z-index: 99999 !important; 
     transition: transform 0.23s ease, background-color 0.23s ease;
-    z-index: 1100; /* Asegura estar sobre todo el contenido */
 }
 
-/* Animación sutil al pasar el mouse por encima */
 .btn-circular-menu:hover {
     background-color: var(--verde);
     transform: scale(1.08);
 }
 
-/* Panel del menú desplegable oculto por defecto a la derecha */
 .panel-menu-hamburguesa {
     position: fixed;
-    top: 80px;                     /* Se posiciona justo debajo del Navbar */
-    right: -320px;                 /* Oculto fuera de la pantalla */
+    top: 0; 
+    right: -320px; 
     width: 300px;
-    height: calc(100vh - 80px);    /* Ocupa todo el alto restante de la pantalla */
-    background: var(--grad-info-card); /* Degradado oscuro integrado con tu diseño */
+    height: 100vh; 
+    background: var(--grad-info-card); 
     border-left: 2px solid var(--azul);
-    padding: 30px 24px;
-    overflow-y: auto;
-    transition: right 0.4s ease-in-out; /* Animación de deslizamiento suave */
-    z-index: 1050;
+    padding: 40px 24px;
+    transition: right 0.4s ease-in-out; 
+    z-index: 99998 !important; 
     box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
 }
 
-/* Clase de activación que el JS inyectará al hacer click */
 .panel-menu-hamburguesa.activo {
-    right: 0;                      /* Desplaza el menú hacia adentro */
+    right: 0 !important; 
 }
 
-/* Estructuración de las listas internas */
-.menu-lista-principal {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.menu-seccion {
-    margin-bottom: 25px;
-}
-
-/* Títulos principales (Servicios, Especialidades, etc.) */
+/* Estructuración de las listas internas del menú */
+.menu-lista-principal { list-style: none; padding: 0; margin: 0; margin-top: 60px; }
+.menu-seccion { margin-bottom: 25px; }
 .categoria-padre {
-    font-family: 'Fraunces', serif;
-    font-size: 20px;
-    color: var(--blanco);
-    text-decoration: none;
-    display: block;
-    margin-bottom: 8px;
-    border-bottom: 1px solid var(--azul);
-    padding-bottom: 4px;
-    transition: color 0.2s;
+    font-family: 'Fraunces', serif; font-size: 20px; color: var(--blanco);
+    text-decoration: none; display: block; margin-bottom: 8px;
+    border-bottom: 1px solid var(--azul); padding-bottom: 4px; transition: color 0.2s;
 }
-
-.categoria-padre:hover {
-    color: var(--verde);
-}
-
-/* Lista de subcategorías */
-.menu-subcategoria {
-    list-style: none;
-    padding-left: 15px;
-}
-
-.menu-subcategoria li {
-    margin-bottom: 6px;
-}
-
-.menu-subcategoria a {
-    color: var(--gris);
-    text-decoration: none;
-    font-size: 15px;
-    transition: color 0.2s;
-}
-
-.menu-subcategoria a:hover {
-    color: var(--celeste);
-}
+.categoria-padre:hover { color: var(--verde); }
+.menu-subcategoria { list-style: none; padding-left: 15px; }
+.menu-subcategoria li { margin-bottom: 6px; }
+.menu-subcategoria a { color: var(--gris); text-decoration: none; font-size: 15px; transition: color 0.2s; }
+.menu-subcategoria a:hover { color: var(--celeste); }
