@@ -1,11 +1,6 @@
-// Archivo: Script_BB.js
-// Funcionalidades: Menú hamburguesa (con cierre automático) y Carrito de Reservas
-
 document.addEventListener("DOMContentLoaded", function() {
     
-    // =====================================================================
-    // 1. LÓGICA DEL MENÚ HAMBURGUESA
-    // =====================================================================
+    // LÓGICA DEL MENÚ HAMBURGUESA ---
     const btnHamburguesa = document.getElementById("btn-hamburguesa");
     const panelDesplegable = document.getElementById("menu-desplegable");
 
@@ -21,19 +16,14 @@ document.addEventListener("DOMContentLoaded", function() {
             panelDesplegable.setAttribute("aria-hidden", !estaAbierto);
         });
 
-        // --- INICIO CÓDIGO ACTUALIZADO DEL MENÚ ---
+        // --- INICIO DEL CÓDIGO  DEL MENÚ ---
 const enlacesMenu = panelDesplegable.querySelectorAll("a");
 
 enlacesMenu.forEach(function(enlace) {
     enlace.addEventListener("click", function(evento) {
-        // 1. Escondemos el menú móvil
         panelDesplegable.classList.remove("activo");
-        
-        // 2. Actualizamos la accesibilidad (Exigencia de la rúbrica)
         btnHamburguesa.setAttribute("aria-expanded", "false");
         panelDesplegable.setAttribute("aria-hidden", "true");
-
-        // 3. Lógica para el scroll suave hacia el carrito de reservas
         const destino = enlace.getAttribute("href");
         if (destino === "#seccion-carrito") {
             evento.preventDefault(); // Evitamos el salto brusco
@@ -44,15 +34,12 @@ enlacesMenu.forEach(function(enlace) {
         }
     });
 });
-// --- FIN CÓDIGO ACTUALIZADO DEL MENÚ ---
 
     } else {
         console.error("Error: Elementos del menú no encontrados.");
     }
 
-    // =====================================================================
-    // 2. LÓGICA DEL CARRITO DE RESERVAS
-    // =====================================================================
+    // CARRITO DE RESERVAS --
     let reservasUsuario = []; 
     
     const contenedorLista = document.getElementById("lista-reservas");
@@ -85,7 +72,6 @@ enlacesMenu.forEach(function(enlace) {
         contadorTotal.textContent = reservasUsuario.length;
     }
 
-    // Delegación de eventos para agregar y quitar reservas
     document.addEventListener("click", function(evento) {
         
         // Agregar reserva
