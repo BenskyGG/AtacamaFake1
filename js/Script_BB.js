@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     
-    // LÓGICA DEL MENÚ HAMBURGUESA ---
+    // LÓGICA DEL MENÚ HAMBURGUESA 
     const btnHamburguesa = document.getElementById("btn-hamburguesa");
     const panelDesplegable = document.getElementById("menu-desplegable");
 
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
             panelDesplegable.setAttribute("aria-hidden", !estaAbierto);
         });
 
-        // --- INICIO DEL CÓDIGO  DEL MENÚ ---
+        // INICIO DEL CÓDIGO  DEL MENÚ 
 const enlacesMenu = panelDesplegable.querySelectorAll("a");
 
 enlacesMenu.forEach(function(enlace) {
@@ -39,7 +39,7 @@ enlacesMenu.forEach(function(enlace) {
         console.error("Error: Elementos del menú no encontrados.");
     }
 
-    // CARRITO DE RESERVAS --
+    // CARRITO DE RESERVAS 
     let reservasUsuario = []; 
     
     const contenedorLista = document.getElementById("lista-reservas");
