@@ -134,7 +134,7 @@
 </section>
 
 <div id="seccion-carrito" class="container my-5 p-4 rounded" style="background-color: var(--negro2); border: 2px solid var(--azul);">
-    <h3 class="text-white mb-4" style="color: var(--verde) !important;">Mis Reservas Seleccionadas</h3>
+    <h3 class="text-white mb-4" style="color: var(--verde) !important;">Mis Reservas</h3>
     
     <ul id="lista-reservas" class="list-group mb-3">
         <li class="list-group-item text-muted text-center bg-dark border-secondary">No has seleccionado ningún servicio aún.</li>
@@ -147,7 +147,7 @@
     <div class="text-end mt-3">
         <a href="#contactos" class="btn btn-primary" id="btn-proceder">Proceder con la Reserva</a>
     </div>
-    </section>
+</div> ```
 
 
     <!-- SECCION NUESTRAS ESPECIALIDADES-->
@@ -382,19 +382,30 @@
     </footer>
     <div id="menu-desplegable" class="panel-menu-hamburguesa" aria-hidden="true">
         <ul class="menu-lista-principal">
+            
             <li class="menu-seccion">
                 <a href="#servicios" class="categoria-padre">Servicios</a>
+                <ul class="menu-subcategoria">
+                    <li><a href="#seccion-carrito">Consultas Generales</a></li>
+                    <li><a href="#seccion-carrito">Vacunación</a></li>
+                    <li><a href="#seccion-carrito">Urgencias 24/7</a></li>
+                </ul>
             </li>
+            
             <li class="menu-seccion">
                 <a href="#especialidades" class="categoria-padre">Especialidades</a>
+                <ul class="menu-subcategoria">
+                    <li><a href="#seccion-carrito">Medicina General</a></li>
+                    <li><a href="#seccion-carrito">Cirugías Especializadas</a></li>
+                    <li><a href="#seccion-carrito">Peluquería</a></li>
+                </ul>
             </li>
-            <li class="menu-seccion">
-                <a href="#nosotros" class="categoria-padre">Nosotros</a>
-            </li>
-            <li class="menu-seccion">
-                <a href="#contactos" class="categoria-padre">Contacto</a>
-            </li>
+            
+            <li class="menu-seccion"><a href="#nosotros" class="categoria-padre">Nosotros</a></li>
+            <li class="menu-seccion"><a href="#contactos" class="categoria-padre">Contacto</a></li>
+            
         </ul>
+    </div>
     </div>
     <script src="js/Script_BB.js" defer></script>
 </body>
