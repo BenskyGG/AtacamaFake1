@@ -21,19 +21,30 @@ document.addEventListener("DOMContentLoaded", function() {
             panelDesplegable.setAttribute("aria-hidden", !estaAbierto);
         });
 
-        // B) EL CÓDIGO QUE ME PEDISTE: Cerrar el menú al hacer clic en un enlace
-        const enlacesMenu = panelDesplegable.querySelectorAll("a");
+        // --- INICIO CÓDIGO ACTUALIZADO DEL MENÚ ---
+const enlacesMenu = panelDesplegable.querySelectorAll("a");
+
+enlacesMenu.forEach(function(enlace) {
+    enlace.addEventListener("click", function(evento) {
+        // 1. Escondemos el menú móvil
+        panelDesplegable.classList.remove("activo");
         
-        enlacesMenu.forEach(function(enlace) {
-            enlace.addEventListener("click", function() {
-                // Quitamos la clase activo para esconderlo
-                panelDesplegable.classList.remove("activo");
-                
-                // Actualizamos la accesibilidad
-                btnHamburguesa.setAttribute("aria-expanded", "false");
-                panelDesplegable.setAttribute("aria-hidden", "true");
-            });
-        });
+        // 2. Actualizamos la accesibilidad (Exigencia de la rúbrica)
+        btnHamburguesa.setAttribute("aria-expanded", "false");
+        panelDesplegable.setAttribute("aria-hidden", "true");
+
+        // 3. Lógica para el scroll suave hacia el carrito de reservas
+        const destino = enlace.getAttribute("href");
+        if (destino === "#seccion-carrito") {
+            evento.preventDefault(); // Evitamos el salto brusco
+            const seccionCarrito = document.getElementById("seccion-carrito");
+            if (seccionCarrito) {
+                seccionCarrito.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+        }
+    });
+});
+// --- FIN CÓDIGO ACTUALIZADO DEL MENÚ ---
 
     } else {
         console.error("Error: Elementos del menú no encontrados.");
