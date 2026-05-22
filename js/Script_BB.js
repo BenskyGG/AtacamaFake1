@@ -1,6 +1,5 @@
 // Archivo: Script_BB.js
-// Desarrollador: Benjamín Barraza
-// Funcionalidades: Menú hamburguesa accesible y Carrito de Reservas dinámico
+// Funcionalidades: Menú hamburguesa (con cierre automático) y Carrito de Reservas
 
 document.addEventListener("DOMContentLoaded", function() {
     
@@ -11,34 +10,46 @@ document.addEventListener("DOMContentLoaded", function() {
     const panelDesplegable = document.getElementById("menu-desplegable");
 
     if (btnHamburguesa && panelDesplegable) {
+        
+        // A) Botón para abrir/cerrar el menú
         btnHamburguesa.addEventListener("click", function(evento) {
             evento.preventDefault(); 
-            
-            // Muestra u oculta el panel
             panelDesplegable.classList.toggle("activo");
 
-            // Accesibilidad ARIA (Rúbrica)
             const estaAbierto = panelDesplegable.classList.contains("activo");
             btnHamburguesa.setAttribute("aria-expanded", estaAbierto);
             panelDesplegable.setAttribute("aria-hidden", !estaAbierto);
         });
+
+        // B) EL CÓDIGO QUE ME PEDISTE: Cerrar el menú al hacer clic en un enlace
+        const enlacesMenu = panelDesplegable.querySelectorAll("a");
+        
+        enlacesMenu.forEach(function(enlace) {
+            enlace.addEventListener("click", function() {
+                // Quitamos la clase activo para esconderlo
+                panelDesplegable.classList.remove("activo");
+                
+                // Actualizamos la accesibilidad
+                btnHamburguesa.setAttribute("aria-expanded", "false");
+                panelDesplegable.setAttribute("aria-hidden", "true");
+            });
+        });
+
     } else {
-        console.error("Error: Elementos del menú no encontrados en el DOM.");
+        console.error("Error: Elementos del menú no encontrados.");
     }
 
     // =====================================================================
-    // 2. LÓGICA DE SERVICIOS DINÁMICOS (Carrito de Reservas)
+    // 2. LÓGICA DEL CARRITO DE RESERVAS
     // =====================================================================
-    
-    let reservasUsuario = []; // Arreglo de objetos (Rúbrica)
+    let reservasUsuario = []; 
     
     const contenedorLista = document.getElementById("lista-reservas");
     const contadorTotal = document.getElementById("total-reservas");
 
-    // Función para dibujar el carrito en pantalla
     function actualizarInterfaz() {
         if (!contenedorLista) return;
-        contenedorLista.innerHTML = ""; // Limpiamos para redibujar
+        contenedorLista.innerHTML = ""; 
 
         if (reservasUsuario.length === 0) {
             contenedorLista.innerHTML = `<li class="list-group-item text-muted text-center bg-dark border-secondary">No has seleccionado ningún servicio aún.</li>`;
@@ -46,7 +57,6 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
 
-        // Recorremos el arreglo y creamos los elementos HTML
         reservasUsuario.forEach(function(servicio, indice) {
             const li = document.createElement("li");
             li.className = "list-group-item d-flex justify-content-between align-items-center bg-dark text-white border-secondary mb-2";
@@ -64,30 +74,27 @@ document.addEventListener("DOMContentLoaded", function() {
         contadorTotal.textContent = reservasUsuario.length;
     }
 
-    // Delegación de eventos Global: Inmune a la carga dinámica de otras compañeras
+    // Delegación de eventos para agregar y quitar reservas
     document.addEventListener("click", function(evento) {
         
-        // A) Lógica para AÑADIR (Detectar clics en cualquier botón de reservar, presente o futuro)
+        // Agregar reserva
         const botonReservar = evento.target.closest(".btn-reservar");
         if (botonReservar) {
             evento.preventDefault();
-            
             const nombreServicio = botonReservar.getAttribute("data-servicio") || "Servicio Seleccionado";
             const servicioObjeto = {
                 nombre: nombreServicio,
                 fecha: new Date().toLocaleDateString()
             };
-
             reservasUsuario.push(servicioObjeto);
             actualizarInterfaz();
         }
 
-        // B) Lógica para QUITAR (Detectar clics en los botones de eliminar del carrito)
+        // Quitar reserva
         if (evento.target.classList.contains("btn-eliminar")) {
             const posicion = evento.target.getAttribute("data-indice");
-            reservasUsuario.splice(posicion, 1); // Borramos del arreglo
-            actualizarInterfaz(); // Redibujamos la pantalla
+            reservasUsuario.splice(posicion, 1); 
+            actualizarInterfaz(); 
         }
     });
-
 });
