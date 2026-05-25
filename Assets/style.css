@@ -461,6 +461,9 @@ width: 100%;
     opacity: .4;
 }
 
+
+
+
 .btn-circular-menu {
     width: 50px;
     height: 50px;
@@ -482,24 +485,29 @@ width: 100%;
     background-color: var(--verde);
     transform: scale(1.08);
 }
+#modoOscuroBtn{
+    background-color: var(--negro);
+}
 
 .panel-menu-hamburguesa {
     position: fixed;
     top: 0; 
     right: -320px; 
     width: 300px;
-    height: 100vh; 
+    height: 400px /* 100vh;  */;
     background: var(--grad-info-card); 
     border-left: 2px solid var(--azul);
-    padding: 40px 24px;
+    padding-left: 40px;
     transition: right 0.4s ease-in-out; 
     z-index: 99998 !important; 
     box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
     overflow-y: auto;
+    margin-top: 5%;
 }
 
 .panel-menu-hamburguesa.activo {
-    right: 0 !important; 
+    right: 0 !important;
+    opacity: 0.8;
 }
 
 /* Estructuración de las listas internas del menú */
@@ -515,3 +523,116 @@ width: 100%;
 .menu-subcategoria li { margin-bottom: 6px; }
 .menu-subcategoria a { color: var(--gris); text-decoration: none; font-size: 15px; transition: color 0.2s; }
 .menu-subcategoria a:hover { color: var(--celeste); }
+
+/* MODO OSCURO */
+
+
+body.light-mode {
+    --negro:      #f0f8f5;
+    --negro2:     #e2f2ed;
+    --info-card:  #ffffff;
+    --gris:       #2d3a38;
+    --blanco:     #0d1f1c;
+    background: #f0f8f5;
+    color: #0d1f1c;
+    transition:  0.4s ease, color 0.4s ease;
+}
+ 
+/* Navbar */
+body.light-mode .navbar {
+    background: #e2f2ed;
+    border-bottom: 1px solid rgba(26,122,110,.2);
+    box-shadow: 0 2px 12px rgba(0,0,0,.08);
+}
+body.light-mode .navbar-brand { color: #0d1f1c; }
+body.light-mode .nav-link     { color: #1a3d35 !important; }
+body.light-mode .nav-link:hover { color: var(--azul) !important; }
+ 
+/* Hero */
+body.light-mode .texto-hero { color: #0d1f1c; }
+body.light-mode .hero::before {
+    background: radial-gradient(circle at 50% 50%, #29b89e33 0%, transparent 70%);
+}
+ 
+/* Sección nosotros */
+body.light-mode #nosotros { background: #dff0ea; }
+ 
+/* Cards de servicios */
+body.light-mode .card {
+    background: linear-gradient(15deg, #c8f5ea 0%, #eaffc4bf 100%) !important;
+    box-shadow: 0 8px 24px rgba(26,122,110,.12);
+}
+body.light-mode .servicios .card .card-body { color: #0d1f1c; }
+body.light-mode .card h5 { color: #0d1f1c; }
+body.light-mode .card p  { color: #1a3d35; }
+body.light-mode .card:hover {
+    box-shadow: 10px 10px 20px rgba(26,122,110,.3), 0 0 1px var(--azul);
+}
+ 
+/* Sección reservas */
+body.light-mode #seccion-carrito {
+    background: #dff0ea !important;
+    border-color: var(--azul) !important;
+}
+body.light-mode #seccion-carrito h3 { color: var(--azul) !important; }
+body.light-mode #seccion-carrito .text-white { color: #0d1f1c !important; }
+body.light-mode .list-group-item.bg-dark {
+    background: #e8f5f0 !important;
+    color: #555 !important;
+    border-color: #b2d8ce !important;
+}
+ 
+/* Info cards contacto */
+body.light-mode .info-card {
+    background: linear-gradient(145deg, #d8f0e9 0%, #e8f8f2 100%);
+    border: 1px solid #b2d8ce;
+}
+body.light-mode .label-value { color: #0d1f1c; }
+ 
+/* Formulario contacto */
+body.light-mode .contact-card {
+    background: linear-gradient(145deg, #d8f0e9 0%, #e8f8f2 100%);
+    border: 1px solid #b2d8ce;
+}
+body.light-mode .contact-card h4 { color: #0d1f1c; }
+body.light-mode .ap-input {
+    background: #f4fcf9;
+    border-color: #a0ccbf;
+    color: #0d1f1c;
+}
+body.light-mode .ap-input::placeholder { color: #6a9a8e; }
+body.light-mode .ap-input:focus {
+    background: #ffffff;
+    border-color: var(--celeste);
+    box-shadow: 0 0 0 3px rgba(41,184,158,.2);
+}
+ 
+/* Mapa */
+body.light-mode .map-container { background: #e2f2ed; }
+ 
+/* Panel menú hamburguesa */
+body.light-mode .panel-menu-hamburguesa {
+    background: linear-gradient(145deg, #d8f0e9 0%, #c8eae0 100%);
+    border-left-color: var(--azul);
+}
+body.light-mode .categoria-padre { color: #0d1f1c; }
+body.light-mode .menu-subcategoria a { color: #1a3d35; }
+ 
+/* Footer */
+body.light-mode .footer-container { background: #c8eae0; }
+body.light-mode footer p          { color: #1a3d35; }
+body.light-mode footer ul a       { color: #1a3d35; }
+body.light-mode .bottom-footer    { color: #2d3a38; }
+body.light-mode .contact-link     { color: #1a3d35; }
+ 
+/* Botón modo toggle — icono */
+body.light-mode #modoOscuroBtn::after { content: ''; }
+ 
+/* h2 en modo claro mantiene color */
+body.light-mode h2 { color: var(--azul); }
+ 
+/* Carousel caption */
+body.light-mode .carousel-inner .carousel-caption {
+    background-color: rgba(230,248,242,.85);
+    color: #0d1f1c;
+}
