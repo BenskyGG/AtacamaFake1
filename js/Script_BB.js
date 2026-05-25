@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // LÓGICA DEL MENÚ HAMBURGUESA 
     const btnHamburguesa = document.getElementById("btn-hamburguesa");
     const panelDesplegable = document.getElementById("menu-desplegable");
-
+    
     if (btnHamburguesa && panelDesplegable) {
         
         // A) Botón para abrir/cerrar el menú
@@ -14,24 +14,30 @@ document.addEventListener("DOMContentLoaded", function() {
             const estaAbierto = panelDesplegable.classList.contains("activo");
             btnHamburguesa.setAttribute("aria-expanded", estaAbierto);
             panelDesplegable.setAttribute("aria-hidden", !estaAbierto);
+
+            if (estaAbierto){
+                document.getElementById("btn-hamburguesa").style.opacity = "0.2"
+            } else{
+                document.getElementById("btn-hamburguesa").style.opacity = "1"
+            };
         });
 
         // INICIO DEL CÓDIGO  DEL MENÚ 
-const enlacesMenu = panelDesplegable.querySelectorAll("a");
+    const enlacesMenu = panelDesplegable.querySelectorAll("a");
 
-enlacesMenu.forEach(function(enlace) {
-    enlace.addEventListener("click", function(evento) {
-        panelDesplegable.classList.remove("activo");
-        btnHamburguesa.setAttribute("aria-expanded", "false");
-        panelDesplegable.setAttribute("aria-hidden", "true");
-        const destino = enlace.getAttribute("href");
-        if (destino === "#seccion-carrito") {
-            evento.preventDefault(); // Evitamos el salto brusco
-            const seccionCarrito = document.getElementById("seccion-carrito");
-            if (seccionCarrito) {
-                seccionCarrito.scrollIntoView({ behavior: "smooth", block: "start" });
+    enlacesMenu.forEach(function(enlace) {
+        enlace.addEventListener("click", function(evento) {
+            panelDesplegable.classList.remove("activo");
+            btnHamburguesa.setAttribute("aria-expanded", "false");
+            panelDesplegable.setAttribute("aria-hidden", "true");
+            const destino = enlace.getAttribute("href");
+            if (destino === "#seccion-carrito") {
+                evento.preventDefault(); // Evitamos el salto brusco
+                const seccionCarrito = document.getElementById("seccion-carrito");
+                if (seccionCarrito) {
+                    seccionCarrito.scrollIntoView({ behavior: "smooth", block: "start" });
+                }
             }
-        }
     });
 });
 
@@ -39,7 +45,7 @@ enlacesMenu.forEach(function(enlace) {
         console.error("Error: Elementos del menú no encontrados.");
     }
 
-    // CARRITO DE RESERVAS 
+     // CARRITO DE RESERVAS 
     let reservasUsuario = []; 
     
     const contenedorLista = document.getElementById("lista-reservas");
